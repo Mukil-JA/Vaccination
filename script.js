@@ -29,7 +29,7 @@ var dict = {
     "PY": "Pondicherry",
     "RJ": "Rajasthan",
     "SK": "Sikkim",
-    "TG": "Telungana",
+    "TG": "Telangana",
     "TN": "Tamil Nadu",
     "TR": "Tirupura",
     "UP": "Uttar Pradesh",
