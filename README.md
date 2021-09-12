@@ -1,1 +1,3 @@
-### [Live website](https://mukil-ja.github.io/Vaccination/)
+#### Covid-19 India Statewise Vaccination Status Tracker
+### [Webpage link](https://mukil-ja.github.io/Vaccination/)
+
