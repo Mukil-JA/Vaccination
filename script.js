@@ -37,23 +37,45 @@ var dict = {
     "WB": "West Bengal",
     "TT": "India"
   };
-fetch('https://data.covid19india.org/v4/min/data.min.json')
-.then(response => response.json())
-.then(commits => {
-        var table=document.getElementById('tr');
+var Sdata;
+function buildTable(commits,codes){
+  var table=document.getElementById('tr');
         table.innerHTML='';
-    for(var i in commits)
+    for(var i=0;i<codes.length;i++)
       { 
-        console.log(commits[i]);
         var row=`
                     <tr>
-                        <td>${dict[i]}</td>
-                        <td>${commits[i].total.vaccinated1}</td>
-                        <td>${commits[i].total.vaccinated2}</td>
+                        <td>${dict[codes[i]]}</td>
+                        <td>${commits[codes[i]].total.vaccinated1}</td>
+                        <td>${commits[codes[i]].total.vaccinated2}</td>
                     </tr>
         `;
         table.innerHTML+=row;
       }
-    // var code=document.getElementById("container").innerHTML=commits.AN.delta7.vaccinated1;
+}
+fetch('https://data.covid19india.org/v4/min/data.min.json')
+.then(response => response.json())
+.then(commits => {
+       Sdata=commits;
+       var codes=[];
+       for(var i in commits) codes.push(i);
+       buildTable(commits,codes);
 });
 
+function searchTable(val, data){
+  var filteredData=[];
+  for(var i in data){
+      var name=dict[i].toLowerCase();
+      if(name.includes(val)){
+          filteredData.push(i);
+      }
+  }
+  return filteredData;
+}
+//Search Input
+$('#input').on('keyup',()=>{
+  var value=$('#input').val();
+  value=value.toLowerCase();
+  var filteredData=searchTable(value,Sdata);
+  buildTable(Sdata,filteredData);
+});
