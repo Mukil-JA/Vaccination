@@ -1,5 +1,6 @@
+
 var dict = {
-    "AN": "Andaman & Nicobar",
+    "AN": "Andaman and Nicobar",
     "AP": "Andhra Pradesh",
     "AR": "Arunachal Pradesh",
     "AS": "Assam",
