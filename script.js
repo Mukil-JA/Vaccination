@@ -54,7 +54,7 @@ function buildTable(commits,codes){
         table.innerHTML+=row;
       }
 }
-fetch('https://data.covid19india.org/v4/min/data.min.json')
+fetch('https://storage.googleapis.com/covid19-open-data/v3/epidemiology.json')
 .then(response => response.json())
 .then(commits => {
        Sdata=commits;
